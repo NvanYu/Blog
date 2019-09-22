@@ -16,7 +16,7 @@
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
 
 ## Node系列
-待更新
+1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
 
 ## 小程序系列
 1. [旧岛项目](https://github.com/NvanYu/Blog/blob/master/docs/小程序/旧岛项目总结.md)
