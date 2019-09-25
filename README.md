@@ -6,7 +6,6 @@
 2. [移动端笔记](https://github.com/NvanYu/Blog/blob/master/docs/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
 
 ## Javascript系列
-[堆栈底层机制理解-重要](https://github.com/NvanYu/Blog/blob/master/docs/js/%E5%A0%86%E6%A0%88%E5%BA%95%E5%B1%82%E6%9C%BA%E5%88%B6%E7%90%86%E8%A7%A3.md)
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
 2. [instanceof原理](https://github.com/NvanYu/Blog/issues/3)
 3. [20道JS原理题](https://github.com/NvanYu/Blog/issues/4)
@@ -15,6 +14,7 @@
 6. [关于JS匿名函数的知识](https://github.com/NvanYu/Blog/issues/9)
 7. [JS数组的一个知识-push](https://github.com/NvanYu/Blog/issues/10)
 8. [数组扁平化](https://github.com/NvanYu/Blog/issues/11)
+9. [堆栈底层机制理解-重要](https://github.com/NvanYu/Blog/blob/master/docs/js/%E5%A0%86%E6%A0%88%E5%BA%95%E5%B1%82%E6%9C%BA%E5%88%B6%E7%90%86%E8%A7%A3.md)
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
