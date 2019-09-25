@@ -17,6 +17,7 @@
 9. [堆栈底层机制理解-重要](https://github.com/NvanYu/Blog/blob/master/docs/js/%E5%A0%86%E6%A0%88%E5%BA%95%E5%B1%82%E6%9C%BA%E5%88%B6%E7%90%86%E8%A7%A3.md)
 10. [形参与arguments的映射关系](https://github.com/NvanYu/Blog/issues/12)
 11. [this指向](https://github.com/NvanYu/Blog/issues/13)
+12. [原型](https://github.com/NvanYu/Blog/issues/14)
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
