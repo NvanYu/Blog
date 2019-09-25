@@ -12,6 +12,7 @@
 4. [JS趣题-让一个变量同时等于3个值](https://github.com/NvanYu/Blog/issues/6)
 5. [珠峰JS数据类型笔记](https://github.com/NvanYu/Blog/issues/7)
 6. [关于JS匿名函数的知识](https://github.com/NvanYu/Blog/issues/9)
+7. [JS数组的一个知识](https://github.com/NvanYu/Blog/issues/10)
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
