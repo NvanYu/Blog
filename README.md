@@ -19,6 +19,7 @@
 10. [形参与arguments的映射关系](https://github.com/NvanYu/Blog/issues/12)
 11. [this指向](https://github.com/NvanYu/Blog/issues/13)
 12. [原型](https://github.com/NvanYu/Blog/issues/14)
+13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
