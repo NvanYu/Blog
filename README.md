@@ -6,7 +6,7 @@
 2. [移动端笔记](https://github.com/NvanYu/Blog/blob/master/docs/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
 3. [浏览器渲染原理](https://github.com/NvanYu/Blog/issues/15)
 
-## Javascript系列
+## Javascript基础知识
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
 2. [instanceof原理](https://github.com/NvanYu/Blog/issues/3)
 3. [20道JS原理题](https://github.com/NvanYu/Blog/issues/4)
@@ -20,6 +20,9 @@
 11. [this指向](https://github.com/NvanYu/Blog/issues/13)
 12. [原型](https://github.com/NvanYu/Blog/issues/14)
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
+
+## Javascript设计模式专题
+1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
