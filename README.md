@@ -20,12 +20,13 @@
 11. [this指向](https://github.com/NvanYu/Blog/issues/13)
 12. [原型](https://github.com/NvanYu/Blog/issues/14)
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
+14. [面向对象](https://github.com/NvanYu/Blog/issues/19)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
 2. [高阶函数](https://github.com/NvanYu/Blog/issues/18)
 
-   ...未完待续，敬请期待
+ ...未完待续，敬请期待
 
 ## Vue 系列
 1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
