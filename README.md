@@ -25,6 +25,7 @@
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
 2. [高阶函数](https://github.com/NvanYu/Blog/issues/18)
+3. FIXON [发布订阅模式](https://github.com/NvanYu/Blog/issues/20)
 
  ...未完待续，敬请期待
 
