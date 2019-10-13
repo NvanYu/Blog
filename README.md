@@ -21,6 +21,7 @@
 12. [原型](https://github.com/NvanYu/Blog/issues/14)
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
 14. [面向对象](https://github.com/NvanYu/Blog/issues/19)
+15. [Javascript深浅拷贝](https://github.com/NvanYu/Blog/issues/21)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
