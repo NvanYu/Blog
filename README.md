@@ -10,7 +10,7 @@
 ## Javascript基础知识
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
 2. [instanceof原理](https://github.com/NvanYu/Blog/issues/3)
-3. [20道JS原理题](https://github.com/NvanYu/Blog/issues/4)
+3. [手写JS原生API](https://github.com/NvanYu/Blog/issues/4)
 4. [JS趣题-让一个变量同时等于3个值](https://github.com/NvanYu/Blog/issues/6)
 5. [珠峰JS数据类型笔记](https://github.com/NvanYu/Blog/issues/7)
 6. [关于JS匿名函数的知识](https://github.com/NvanYu/Blog/issues/9)
