@@ -23,7 +23,7 @@
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
 14. [面向对象](https://github.com/NvanYu/Blog/issues/19)
 15. [Javascript深浅拷贝](https://github.com/NvanYu/Blog/issues/21)
-16. [函数柯里化](https://github.com/NvanYu/Blog/issues/23)
+16. [函数柯里化,函数管道](https://github.com/NvanYu/Blog/issues/23)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
