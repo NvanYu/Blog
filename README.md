@@ -27,6 +27,7 @@
 17. [对象混合，对象克隆](https://github.com/NvanYu/Blog/issues/24)
 18. [函数节流与防抖](https://github.com/NvanYu/Blog/issues/25)
 19. [数组去重](https://github.com/NvanYu/Blog/issues/26)
+20. [JSONP原理](https://github.com/NvanYu/Blog/issues/28)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
