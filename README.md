@@ -41,6 +41,8 @@
 
 ## React系列
 1. [React-JSX渲染机制原理](https://github.com/NvanYu/Blog/issues/27)
+2. [redux原理](https://github.com/NvanYu/Blog/issues/29)
+3. [react-redux原理](https://github.com/NvanYu/Blog/issues/30)
 
 ## Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
