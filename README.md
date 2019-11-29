@@ -37,8 +37,6 @@
 
  will continue...
 
-## Vue 系列
-1. [初探Vue 3.0 Composition API](https://github.com/NvanYu/Blog/issues/1)
 
 ## React系列
 1. [React-JSX渲染机制原理](https://github.com/NvanYu/Blog/issues/27)
