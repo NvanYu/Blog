@@ -29,6 +29,7 @@
 19. [数组去重](https://github.com/NvanYu/Blog/issues/26)
 20. [JSONP原理](https://github.com/NvanYu/Blog/issues/28)
 21. [parseInt系列和map高阶函数系列](https://github.com/NvanYu/Blog/issues/31)
+22. [函数的VO和AO](https://github.com/NvanYu/Blog/issues/32)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
