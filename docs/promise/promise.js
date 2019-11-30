@@ -1,3 +1,21 @@
+// resolve, reject不能放在原型上
+// 如果then成功或失败的结果中，返回的还是一个promise，会等待这个promise的执行结果，并将结果向外层的then传递
+// 如果then（成功或失败方法）抛出异常，会走下一次then的失败，走失败有2种情况：返回一个失败的reject；抛出异常
+// 如何中断promise链式调用：return new Promise(() => {}):返回一个既不成功也不失败的promise即可终止链的调用
+// 每次then都要返回一个新的promise状态，保证状态不受影响
+// resolve如果放了一个promise，那么会等待这个promise执行完成
+// promise优点：Promise.all()   链式调用
+// promise缺点: 还是基于回调；不能中断（不是不能中断链式调用），一旦执行就不能停下来；例如fetch就不能中断
+// ----------------------------------------------------
+// generator函数
+// function* read() {
+//     let a = yield fs.readFile('demo.txt', 'uft8');
+//     console.log(a);
+// }
+// let it = read();
+// it.next();                   // 第一次next的参数是无意义的
+// it.next('hello');            // 之后next的参数会作为上一次yield的返回结果，即会输出a为‘hello’
+
 const PENDING = "PENDING";
 const FULFILLED = "FULFILLED";
 const REJECTED = "REJECTED";
