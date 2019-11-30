@@ -21,7 +21,7 @@
 11. [this指向](https://github.com/NvanYu/Blog/issues/13)
 12. [原型](https://github.com/NvanYu/Blog/issues/14)
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
-14. [面向对象](https://github.com/NvanYu/Blog/issues/19)
+14. [面向对象继承](https://github.com/NvanYu/Blog/issues/19)
 15. [Javascript深浅拷贝](https://github.com/NvanYu/Blog/issues/21)
 16. [函数柯里化,函数管道](https://github.com/NvanYu/Blog/issues/23)
 17. [对象混合，对象克隆](https://github.com/NvanYu/Blog/issues/24)
