@@ -30,6 +30,7 @@
 20. [JSONP原理](https://github.com/NvanYu/Blog/issues/28)
 21. [parseInt系列和map高阶函数系列](https://github.com/NvanYu/Blog/issues/31)
 22. [函数的VO和AO](https://github.com/NvanYu/Blog/issues/32)
+23. [JS同步异步编程详解](https://github.com/NvanYu/Blog/issues/33)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
@@ -43,6 +44,7 @@
 1. [React-JSX渲染机制原理](https://github.com/NvanYu/Blog/issues/27)
 2. [redux原理](https://github.com/NvanYu/Blog/issues/29)
 3. [react-redux原理](https://github.com/NvanYu/Blog/issues/30)
+4. [react组件间传值总结](https://github.com/NvanYu/Blog/tree/master/docs/react%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC)
 
 ## Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
