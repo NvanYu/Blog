@@ -31,6 +31,7 @@
 21. [parseInt系列和map高阶函数系列](https://github.com/NvanYu/Blog/issues/31)
 22. [函数的VO和AO](https://github.com/NvanYu/Blog/issues/32)
 23. [JS同步异步编程详解](https://github.com/NvanYu/Blog/issues/33)
+24. [JSON.stringify()特性](https://github.com/NvanYu/Blog/issues/35)
 
 ## Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
