@@ -8,6 +8,7 @@
 4. [HTML和CSS碎知识整理](https://github.com/NvanYu/Blog/issues/22)
 5. [1物理像素实现](https://github.com/NvanYu/Blog/issues/36)
 6. [背景图片左外边框距离问题](https://github.com/NvanYu/Blog/issues/37)
+7. [rem响应式布局开发](https://github.com/NvanYu/Blog/issues/39)
 
 ## Javascript基础知识
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
