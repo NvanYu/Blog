@@ -391,3 +391,67 @@ module.exports = {
 cover 99.5%
 ```
 
+
+
+## 关于多页面打包
+
+1. 规范目录结构
+2. 制定合理的entry匹配规则
+3. 实现entry动态计算
+4. 根据entry的key值增加对应的html-webpack-plugin
+
+目录结构示例如下:
+
+```txt
+/src
+  /page
+     /detail
+        index.html
+        index.js
+     /index
+        index.html
+        index.js
+     /list
+        index.html
+        index.js
+```
+
+
+
+配置如下:
+
+```js
+const setMPA = () => {
+    const entry = {};
+    const htmlWebpackPlugins = [];
+    // glob npm包
+    const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+    entryFiles.map(entryFile => {
+        const match = entryFile.match(/src\/(.*)\/index\.js/);
+        const pageName = match && match[1];
+        entry[pageName] = entryFile;  
+        htmlWebpackPlugins.push(
+          new HtmlWebpackPlugin({
+              inlineSource: '.css$',
+              template: path.join(__dirname, `src/${pageName}/index.html`),
+              filename: `${pageName.html}`,
+              chunks: [pageName],
+              inject: true,
+              minify: {
+                  html5: true,
+                  collapseWhitespace: true,
+                  preserveLineBreaks: false,
+                  minifyCSS: true,
+                  minifyJS: true,
+                  removeComments: false
+              }
+          })
+        )
+    })
+    return {
+        entry,
+        htmlWebpackPlugins
+    }
+}
+```
+
