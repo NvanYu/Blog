@@ -1,4 +1,3 @@
-```js
 /*
  * formatTime：时间字符串的格式化处理
  */
@@ -360,6 +359,3 @@ window.alert = (function() {
     return new Dialog(content, options);
   };
 })();
-
-```
-
