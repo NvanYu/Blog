@@ -1,5 +1,7 @@
 # 🌈 千寻的博客
 
+![javascript](./images/javascript.gif)
+
 
 ## 🍔 HTML & CSS系列 
 1. [CSS文字溢出问题](https://github.com/NvanYu/Blog/issues/5)
