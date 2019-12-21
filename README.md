@@ -1,7 +1,7 @@
-# 千寻的博客
+# 🌈 千寻的博客
 
 
-## HTML & CSS系列
+## 🍔 HTML & CSS系列 
 1. [CSS文字溢出问题](https://github.com/NvanYu/Blog/issues/5)
 2. [移动端笔记](https://github.com/NvanYu/Blog/blob/master/docs/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
 3. [浏览器渲染原理](https://github.com/NvanYu/Blog/issues/15)
@@ -10,7 +10,7 @@
 6. [背景图片左外边框距离问题](https://github.com/NvanYu/Blog/issues/37)
 7. [rem响应式布局开发](https://github.com/NvanYu/Blog/issues/39)
 
-## Javascript基础知识
+## 🤣 Javascript基础知识
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
 2. [instanceof，call，apply，bind，new原理](https://github.com/NvanYu/Blog/issues/3)
 3. [手写JS原生API](https://github.com/NvanYu/Blog/issues/4)
@@ -38,7 +38,7 @@
 25. [JS运算符优先级面试题](https://github.com/NvanYu/Blog/blob/master/docs/js/js%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 26. [nodejs事件轮询](https://github.com/NvanYu/Blog/issues/38)
 
-## Javascript设计模式专题
+## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
 2. [高阶函数](https://github.com/NvanYu/Blog/issues/18)
 3. [发布订阅模式](https://github.com/NvanYu/Blog/issues/20)
@@ -46,20 +46,18 @@
  will continue...
 
 
-## React系列
+## 💖 React系列 🤞
 1. [React-JSX渲染机制原理](https://github.com/NvanYu/Blog/issues/27)
 2. [redux原理](https://github.com/NvanYu/Blog/issues/29)
 3. [react-redux原理](https://github.com/NvanYu/Blog/issues/30)
 4. [react组件间传值总结](https://github.com/NvanYu/Blog/tree/master/docs/react%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC)
 5. [ReactHook学习](https://github.com/NvanYu/Blog/issues/34)
 6. [react路由](https://github.com/NvanYu/Blog/blob/master/docs/react%E8%B7%AF%E7%94%B1.md)
+7. [PureCompoent原理解析](https://github.com/NvanYu/Blog/issues/40)
 
-## Node系列
+## 🏝️ Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
 2. [KOA框架搭建](https://github.com/NvanYu/Blog/blob/master/docs/KOA%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA.md)
 
-## Axios解读重构系列
-[TS版本Axios](https://github.com/NvanYu/Blog/tree/master/docs/axios)
-
-## 小程序系列
+## 🙈 小程序系列 
 1. [旧岛项目](https://github.com/NvanYu/Blog/blob/master/docs/小程序/旧岛项目总结.md)
