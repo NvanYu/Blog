@@ -1,6 +1,8 @@
+![javascript](./images/javascript.png)
+
 # 🌈 千寻的博客
 
-![javascript](./images/javascript.gif)
+
 
 
 ## 🍔 HTML & CSS系列 
