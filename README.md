@@ -1,6 +1,6 @@
 ![javascript](./images/javascript.png)
 
-# 🌈 千寻的博客
+# 🌈 Dan的博客
 
 
 
