@@ -41,6 +41,7 @@
 24. [JSON.stringify()特性](https://github.com/NvanYu/Blog/issues/35)
 25. [JS运算符优先级面试题](https://github.com/NvanYu/Blog/blob/master/docs/js/js%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 26. [nodejs事件轮询](https://github.com/NvanYu/Blog/issues/38)
+27. [模拟Symbol](https://github.com/NvanYu/Blog/issues/41)
 
 ## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
