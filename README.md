@@ -1,4 +1,3 @@
-![javascript](./images/javascript.png)
 
 # 🌈 Dan的博客
 
