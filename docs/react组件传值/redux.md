@@ -244,14 +244,16 @@ state = {
 // voteAction.js: vote模块的action
 import * as TYPES from '../action-types';
 let voteAction = {
-    changeSup() {
+    changeSup(payload) {
         return {
-            type: TYPES.VOTE_SUPPORT
+            type: TYPES.VOTE_SUPPORT,
+	    payload
         }
     },
-    changeOpp() {
+    changeOpp(payload) {
         return {
-            type: TYPES.VOTE_OPPOSE
+            type: TYPES.VOTE_OPPOSE,
+	    num: payload
         }
     }
 }
