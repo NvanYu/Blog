@@ -60,6 +60,7 @@
 6. [react路由](https://github.com/NvanYu/Blog/blob/master/docs/react%E8%B7%AF%E7%94%B1.md)
 7. [PureCompoent原理解析](https://github.com/NvanYu/Blog/issues/40)
 8. [为什么 React 不推荐使用 mixin](https://github.com/NvanYu/Blog/issues/42)
+9. [dva使用](https://github.com/NvanYu/Blog/issues/44)
 
 ## 🏝️ Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
