@@ -278,6 +278,47 @@ componentDidMount() {
   });
 }
 */ 
+
+// action默认所有派发的行为都是同步的，需要异步获取数据再派发，需要redux中间件
+// 示例如下:
+// store/index.js
+import {createStore, applyMiddleware} from 'redux';
+import reduxLogger from 'redux-logger';
+import reduxPromise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
+import reducer from './reducers/index';
+export default createStore(reducer, applyMiddleware(reduxLogger, reduxPromise, reduxThunk));
+
+// 异步中间件使用示例
+// tackAction.js
+import * as TYPES from '../action-types';
+import api from '../../api/index';
+export default {
+  // redux-thunk使用示例
+  queryAll() {
+    return async dispatch => {
+      const data = await api.tack.getTaskList(0);
+      if(parseInt(data.code) === 0) {
+        dispatch({
+	  type: TYPES.TASK_QUERY_ALL,
+	  payload: data.list  // 这里的payload不一定叫payload，可以是其他名字，但是redux-promise不是这样的
+	})
+      }
+    }
+  },
+  // redux-promise使用示例
+  queryAll2() {
+    return {
+      type: TYPES.TASK_QUERY_ALL,
+      payload: new Promise(async resolve => {
+        const data = await api.tack.getTaskList(0);
+	if(parseInt(data.code) === 0) {
+           resolve(data.list);
+        }
+      })
+    }
+  }
+}
 ```
 
 
