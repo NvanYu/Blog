@@ -42,6 +42,7 @@
 26. [nodejs事件轮询](https://github.com/NvanYu/Blog/issues/38)
 27. [模拟Symbol](https://github.com/NvanYu/Blog/issues/41)
 28. [关于2020年JS的几个新特性的认知](https://github.com/NvanYu/Blog/issues/43)
+29. [正则表达式](https://github.com/NvanYu/Blog/issues/45)
 
 ## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
