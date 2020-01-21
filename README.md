@@ -59,10 +59,11 @@
 3. [react-redux原理](https://github.com/NvanYu/Blog/issues/30)
 4. [react组件间传值总结](https://github.com/NvanYu/Blog/tree/master/docs/react%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC)
 5. [ReactHook学习](https://github.com/NvanYu/Blog/issues/34)
-6. [react路由](https://github.com/NvanYu/Blog/blob/master/docs/react%E8%B7%AF%E7%94%B1.md)
-7. [PureCompoent原理解析](https://github.com/NvanYu/Blog/issues/40)
-8. [为什么 React 不推荐使用 mixin](https://github.com/NvanYu/Blog/issues/42)
-9. [dva使用](https://github.com/NvanYu/Blog/issues/44)
+6. [React渲染属性](https://github.com/NvanYu/Blog/issues/47)
+7. [react路由](https://github.com/NvanYu/Blog/blob/master/docs/react%E8%B7%AF%E7%94%B1.md)
+8. [PureCompoent原理解析](https://github.com/NvanYu/Blog/issues/40)
+9. [为什么 React 不推荐使用 mixin](https://github.com/NvanYu/Blog/issues/42)
+10. [dva使用](https://github.com/NvanYu/Blog/issues/44)
 
 ## 🏝️ Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
