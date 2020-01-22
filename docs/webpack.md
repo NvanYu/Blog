@@ -545,3 +545,81 @@ new webpack.ProvidePlugin({
 }
 ```
 
+## 懒加载（动态加载模块）
+示例:点击按钮加载模块
+```js
+btn.addE  ventListener('click', function() {
+  import('./test').then({default: m}) => {
+    op.innerHTML = m(20,10);
+  }
+})
+
+// 注意，在webpack的配置文件中，output字段加一行
+output: {
+  chunkFilename: '[name].min.js'  // [name]是从0开始的数字来命名动态文件
+}
+
+// 当然，可以给动态文件重新起名
+btn.addE  ventListener('click', function() {
+  import(/* webpackChunkName: 'ywy' */'./test').then({default: m}) => {
+    op.innerHTML = m(20,10);
+  }
+})
+
+// 扩展知识
+// webpackPretetch: webpack预引入: 利用浏览器空闲时间把动态模块提前引入，条件：主模块全部加载完成后，才会把动态文件加载完成再引入
+// webpackPreload: webpack预加载: 跟主模块代码同时进行加载，但不会引入
+import(/* webpackPretetch:true */'./test')
+import(/* webpackPreload:true */'./test')
+```
+
+## resolve解析
+```js
+module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', 'ts', 'tsx'],  // 添加扩展名进行匹配
+    alias: {  // 设置别名
+      'test': path.resolve(__dirname, 'src/test'),
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
+}
+```
+
+## happypack(多线程打包)
+
+## 根据mode分离配置环境
+webpack.base.js  公共配置
+
+webpack.dev.js   开发环境配置
+
+webpack.prod.js  生产环境配置
+
+修改scripts命令
+```json
+{
+  "scripts": {
+    "dev": "webpack --env.development --config ./webpack.base",
+    "build": "webpack --env.production --config ./webpack.base"
+  }
+}
+```
+
+配置大致如下:
+```js
+// webpack.base.js
+const dev = require('./webpack.dev');
+const prod = require('./webpack.prod');
+const merge = require('webpack-merge');
+module.exports = {
+  let base = {....};  // 按照之前module.exports配置时的那个对象
+  if(env.development) {
+    return merge(base, dev);
+  } else {
+    return merge(base, prod);
+  }
+}
+
+// webpack.dev.js设置mode为development，其他配置按照开发环境配置即可
+// webpack.prod.js设置mode为production，其他配置按照生产环境配置即可
+```
