@@ -623,3 +623,6 @@ module.exports = {
 // webpack.dev.js设置mode为development，其他配置按照开发环境配置即可
 // webpack.prod.js设置mode为production，其他配置按照生产环境配置即可
 ```
+
+## webpack手写loader
+[手写webpack之loader原理入口](https://github.com/NvanYu/Blog/issues/48)
