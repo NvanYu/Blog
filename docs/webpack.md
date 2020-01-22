@@ -35,6 +35,15 @@ $ yarn add webpack webpack-cli -D
   /* npm 5.2以后才支持的命令 */
   $ npx webpack
   ```
+  
++ scripts脚本设置示例
+  ```json
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "dev:server": "webpack-dev-server"  会找node_module目录下bin目录中的webpack-dev-server命令
+  }
+  ```
 
 + 自定义配置(关于webpack配置讲解都放在配置的源码中)
 
@@ -56,10 +65,15 @@ $ yarn add webpack webpack-cli -D
       mode: 'development',
       // 入口
       entry: ['@babel/polyfill', './src/index.js'],
+      // entry: {index: './src/index.js'} 对象形式写法
       // 出口
       output: {
           // 输出文件名
-          filename: 'bundle.min.js',
+          // 文件指纹:hash: 跟整个项目的构建相关，只要项目中有文件更改，整个项目构建的hash都会变，并且全部文件都使用相同的hash值
+          // chunkHash: 根据不同入口文件进行构建对应的chunk，生成对应的hash值，生产环境把公共库和程序入口文件区分开，单独打包构建，接着用        chunkHash生成hash，那么只要公共库的代码不改，就可以保证hash不受影响
+          // contentHash： 只要文件内容不变，就不会重复构建hash
+          // 此类hash作用，配合CDN缓存使用:webpack本地构建->生成的文件名带上md5值->文件内容变->文件hash变->html引用的URL地址变->触发CDN服务器从服务器从源服务器拉取新的对应数据->更新本地缓存
+          filename: 'bundle.[contentHash:8].js',
           // 输出目录必须是绝对路径
           path: path.resolve(__dirname, 'dist'),
           publicPath: './'   // 给编译引用资源地址前设置前缀
@@ -67,13 +81,22 @@ $ yarn add webpack webpack-cli -D
       // 关于webpack-dev-server的一些配置
       // 执行命令: webpack-dev-server --config xxx.js
       // 特点: 服务器启动后不会关闭，修改src目录下的文件后会自动编译然后自动刷新浏览器
-      devServer: {
-          port: 3000,      // 创建服务指定的端口
-          progress: true,  // 显示打包的进度条
+      devServer: {                // 在内存中打包，所有内容在根目录下
+          port: 3000,             // 创建服务指定的端口
+          open: true,             // 编译完成是否自动打开浏览器
+          progress: true,         // 显示打包的进度条
           contentBase: './dist',  // 指定当前服务处理资源的目录
-          open: true     // 编译完成是否自动打开浏览器
+          compress: true,
+          proxy: {
+            "/api": {
+              target: "http://localhost:6000",  // 设置请求服务器的地址
+              secure: false,   // 代理的服务器是https
+              changeOrigin: true,  // 设置请求头host(自己端口号地址9999)地址改成服务器地址(9999会变成服务器地址6000)
+              pathRewrite: {"/api": ""}  //重写路径，如客户端请求有/api/user,但服务器匹配的只有/user，所以要把/api去掉(换成空即可)
+          }
+    }
       },
-      // webpack中使用插件
+      // webpack中使用插件，放在plugins的数组配置中
       plugins: [
           new HtmlWebpackPlugin({
               // 指定自己的模板
@@ -91,14 +114,33 @@ $ yarn add webpack webpack-cli -D
               }
           }),
           new MiniCssExtractPlugin({
-              // 指定输出的文件名
+              // 设置分离出的css存放的目录以及文件名
+              /*
+                然后要再次配置loader
+                  {
+                    test: /\.css$/,
+                    use: [
+                      {
+                        loader: MiniCssExtractPlugin.loader // 分离后的css以外链方式引入html文件，此时style-loader就不要了
+                      }
+                    ]
+                  }
+              */
               filename: 'css/main.css' // 分目录打包css文件
+          })，
+          // 可以配置清除打包目录下的文件
+          new CleanWebpackPlugin({
+              // 可以配置清除打包目录下的文件，哪些要清楚，哪些不用
+              cleanOnceBeforeBuildPatterns: ['cc/*', "!cc/a.js"]
           })
       ],
-      // 配置模块加载器loader
+      // 配置模块加载器loader,webpack只认识js和json文件，loader让webpack能处理其它类型的文件
+      // loader位于module配置中，有test和use这2个属性
       module: {
           // 模块规则：使用加载器（默认从右向左执行，从下向上）
           rules: [{
+              // css处理相关loader : less less-loader | node-sass sass-loader | stylus stylus-loader
+              // {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']}
               test: /\.(css|less)$/,  // 基于正则匹配哪些模块需要处理
               use: [
                   // 把CSS插入到head以内嵌style标签的方式，但要把CSS文件导入index.js入口文件才有效
@@ -106,7 +148,16 @@ $ yarn add webpack webpack-cli -D
                   MiniCssExtractPlugin.loader, // 把抽离的CSS以link方式引入html文件
                   // 编译解析@import/url()这种语法
                   'css-loader',
-                  // 设置前缀，要配合autoprefixer使用
+                  /*
+                    改进版css-loader配置
+                    use: [{
+                      loader: 'css-loader',
+                      options: {
+                        importLoaders: 2 // 用后面2个加载器来解析,用处:在css文件中引入了less文件
+                      }
+                    }, 'postcss-loader', "less-loader"]
+                  */
+                  // 设置前缀，要配合autoprefixer使用  postcss-loader(样式处理工具)一般配合autoprefixer使用
                   /*
                       也可以在根目录新建postcss.config.js中配置
                       module.exports = {
@@ -135,27 +186,33 @@ $ yarn add webpack webpack-cli -D
                   
               ]
           }, {
+              // 解析es6，es7 @babel/core: 核心模块, babel-loader: 解析js，是webpack和babel的桥梁, @babel/preset-env: es6->es5插件的集合
               test: /\.js$/i,
               // 编译JS的loader
-              use: [{
-                  loader: 'babel-loader',
-                  options: {
-                      // 基于BABEL的语法解析包(ES6->ES5)
-                      presets: [
-                          '@babel/preset-env',
-                      ],
-                      // 使用插件处理>=ES6中的特殊语法
-                      plugins: [
-                          ['@babel/plugin-proposal-decorators', {'legacy': true}],
-                          ['@babel/plugin-proposal-class-properties', {'loose': true}],
-                          '@babel/plugin-transform-runtime'
-                      ]
-                  }
-              }, 'eslint-loader'],  // 在https://eslint.org/demo生成.eslint.json放入根目录
-              // 设置编译时忽略的文件和指定编译目录
+              use: ['babel-loader', 'eslint-loader'],
               exclude: /node_modules/,
               include: path.resolve(__dirname, 'src'),
-              enforce: "pre"  // 在所有规则之前先校验代码    去官网下一个.eslintrc.js文件
+              enforce: "pre"  // 在所有规则之前先校验代码    去官网下一个.eslintrc.js文件.eslint爱配不配，看需求
+              // 然后在根目录创建.babelrc文件
+              /*
+                {
+                  "presets": [
+                    [
+                      "@babel/preset-env",
+                      {
+                        "useBuiltIns": "usage",  只转换使用的api
+                        "corejs": 3  取代@babel/polyfill转换高版本api，需要安装core-js@3
+                      }
+                    ]
+                  ],
+                  使用插件处理>=ES6中的特殊语法
+                  "plugins": [
+                    '@babel/plugin-transform-runtime', 依赖@babel/runtime，会自动找这个插件，所以不用配
+                    ['@babel/plugin-proposal-decorators', {'legacy': true}],
+                    ['@babel/plugin-proposal-class-properties', {'loose': true}]        
+                  ]
+                }
+              */
           }, {
               // 处理html文件导入img图片的loader
               // 在JS（如JSX）中使用图片(webpack)，要基于模块方式把图片当做资源导入才能使用(相对路径要这样处理，绝对路径不用，例如网络图片链接就不用这种方式处理)
@@ -166,12 +223,17 @@ $ yarn add webpack webpack-cli -D
               use: [{
                   loader: 'url-loader',  // 把指定大小的图片变成base64格式,也可以用file-loader
                   options: {
-                      // 图片小于200kb，直接base64编码
+                      // 图片小于200kb，直接base64编码，若大于200kb会自动调用file-loader打包成文件输出
                       limit: 200 * 1024, 
                       // 分目录打包，控制打包后图片所在目录目录
                       outputPath: '/images'   
                   }
               }]
+          }, {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[ext]'  [name]配置打包后的图片名不要变
+            }
           }]
       },
       // 配置优化规则
@@ -186,6 +248,7 @@ $ yarn add webpack webpack-cli -D
                   paraller: true,   // 是否开启并发压缩
                   sourceMap: true   // 启动源码映射(方便调试)
               })
+              // terser-webpack-plugin也可以压缩JS
           ]
       }
   }
@@ -197,9 +260,9 @@ $ yarn add webpack webpack-cli -D
 
 1. *webpack-dev-server 配置开发服务  这个插件打包后的内容是在内存中的*，不会生成打包后的文件
 
-2. *file-loader  加载图片并拷贝到dist目录下  字体图标只能用file-loader解析*(eot|svg|ttf|woff|woff2)
+2. *file-loader  把图片解析成文件（根据图片生成一个md5发射到dist目录，返回当前文件目录）  字体图标只能用file-loader解析*(eot|svg|ttf|woff|woff2)
 
-3. *url-loader   把图片解析成base64*
+3. *url-loader   把小图片解析成base64*
 
 4. *html-withimg-loader  处理html文件中的图片*
 
@@ -243,13 +306,13 @@ $ yarn add webpack webpack-cli -D
 
 19. Scope-Hoisting:webpack4 后不用配，天生自带，用来减少作用域提升性能
 
-20. css文件热更新是通过style-loader实现的，如果把css文件抽离出来后，热更新是无效的
+20. css文件热更新是通过style-loader实现的，如果把css文件抽离出来后以link形式引入就不起作用了，所以loader要用stylu-loader，不要用MiniCssExtractPlugin.loader，同时注意，有时css热更新会有bug，因此要配置一个webpack插件
 
-    HotModuleReplacementPlugin(webpack自带插件)(防止热更新后刷新整个网页)
+    new webpack.HotModuleReplacementPlugin()(webpack自带插件)(防止热更新后刷新整个网页)
 
     module.hot.accept
 
-21. 安装webpack-bundle-analyzer插件
+21. 安装webpack-bundle-analyzer插件,配合splitChunks一起用
 
     const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
@@ -264,7 +327,7 @@ optimization: {
     // new TerserPlugin({}) 也是压缩JS的
     minimizer: [new TerserPlugin({}), new OptimizeCssAssetsPlugin({})],
     splitChunks: {
-      chunks: 'async',  // 抽离异步代码  all是抽离所有
+      chunks: 'async',  // 抽离异步代码  all是抽离所有, initial抽离同步代码
       minSize: 30000,   // 至少30kb才去抽离
       maxSize: 0,       // 
       minChunks: 1,     // 至少引用模块一次
@@ -273,10 +336,10 @@ optimization: {
       automaticNameDelimiter: '~',  // 抽离模块名称的连接符
       automaticNameMaxLength: 30,   
       name: true,   // 可以更改模块名
-      cacheGroups: {   // 自己设定一些规则
+      cacheGroups: {   // 自己设定一些规则，若符合缓存组的配置设置，会打包到各自缓存组中
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          test: /[\\/]node_modules[\\/]/,  // 当抽离同步代码时，根据缓存组的配置，若发现模块来自node_module，会走vendors配置，生成的文件类似vendors~main,main是打包的入口文件
+          priority: -10  // 优先级越高，会优先使用当前缓存组
         },
         default: {
           minChunks: 2,
@@ -298,15 +361,7 @@ devServer: {
     //     res.json({name: 'yy'});
     //   })
     // },
-    proxy: {
-      "/api": {
-        target: "http://localhost:6000",  // 设置请求服务器的地址
-        secure: false,   // 代理的服务器是https
-        changeOrigin: true,  // 设置请求头host(自己端口号地址9999)地址改成服务器地址(9999会变成服务器地址6000)
-        pathRewrite: {"/api": ""}  //重写路径，如客户端请求有/api/user,但服务器匹配的只有/user，所以要把/api去掉(换成空即可)
-
-      }
-    }
+    
   },
 ```
 
@@ -323,8 +378,9 @@ module.exports = {
       other: './src/other.js'
     },
     output: {
-      filename: '[name].js',
+      filename: '[name].js',  // [name]中的name指的是入口文件配置的index和other
       path: path.resolve(__dirname, './dist');
+      // 此时，打包的文件会在一个html文件中，如果想要index.js打包到index.html，other.js打包到other.html，要在html-webpack-plugin中修改一个配置，加一个chunks: ['index']
     },
     plugins: [
       *// new HtmlWebpackPlugin({*
@@ -452,6 +508,40 @@ const setMPA = () => {
         entry,
         htmlWebpackPlugins
     }
+}
+```
+
+## 暴露全局变量
+1. 直接使用CDN方式  add-asset-html-cdn-webpack-plugin
+```js
+new AddAssetHtmlPlugin(true, {  // 不能放html-webpack-plugin前面
+  "jquery": "cdn地址"
+})
+// 配合externals使用
+module.exports = {
+  externals: {
+    'jquery': '$'  // $外部变量， 不用打包
+  }
+}
+```
+
+2. providePlugin 自动加载模块，不用import和require,给每个模块注入变量
+```js
+const webpack = require('webpack');
+new webpack.ProvidePlugin({
+  "$": 'jquery',  // $是来自jquery，每个模块都注入变量$，而不是注入全局
+  _map": ['lodash', 'map']  // 直接把lodash的方法暴露在全局
+})
+```
+
+3. expose-loader
+```js
+{
+  test: require.resolve('jquery'),
+  use: {
+    loader: 'expose-loader',
+    options: '$'   // 注意在每个模块使用时要引入 import $ from 'jquery'
+  }
 }
 ```
 
