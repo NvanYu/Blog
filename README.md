@@ -67,6 +67,7 @@
 
 ## 🏝️ Node系列
 1. [Git使用](https://github.com/NvanYu/Blog/issues/8)
+2. [webpack知识](https://github.com/NvanYu/Blog/blob/master/docs/webpack.md)
 2. [KOA框架搭建](https://github.com/NvanYu/Blog/blob/master/docs/KOA%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA.md)
 
 ## 🙈 小程序系列 
