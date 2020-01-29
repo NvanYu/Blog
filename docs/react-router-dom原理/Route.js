@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Consumer } from "./context";
 import pathToReg from "path-to-regexp";
-export default class HashRouter extends Component {
+export default class Route extends Component {
   constructor() {
     super();
   }
