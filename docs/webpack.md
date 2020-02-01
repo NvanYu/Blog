@@ -614,7 +614,7 @@ webpack.prod.js  生产环境配置
 const dev = require('./webpack.dev');
 const prod = require('./webpack.prod');
 const merge = require('webpack-merge');
-module.exports = {
+module.exports = (env) => {
   let base = {....};  // 按照之前module.exports配置时的那个对象
   if(env.development) {
     return merge(base, dev);
