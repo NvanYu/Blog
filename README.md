@@ -44,6 +44,7 @@
 28. [关于2020年JS的几个新特性的认知](https://github.com/NvanYu/Blog/issues/43)
 29. [正则表达式](https://github.com/NvanYu/Blog/issues/45)
 30. [机器学习入门知识](https://github.com/NvanYu/Blog/issues/46)
+31. [typescript配置文件解析](https://github.com/NvanYu/Blog/issues/49)
 
 ## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
