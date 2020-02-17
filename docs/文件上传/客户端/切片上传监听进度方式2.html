@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<input type="file" id="fileInp">
+	<span id='progress'>0%</span>
+	<br>
+	<img src="" alt="" id="serverImg">
+
+	<!-- IMPORT JS -->
+	<script src="js/md5.min.js"></script>
+	<script src="js/ajax.js"></script>
+	<script>
+		let _data = new Proxy({
+			total: 0
+		}, {
+			set(target, key, value) {
+				target[key] = value;
+				if (_data.total >= 100) {
+					progress.innerHTML = '上传完成';
+					return;
+				}
+				progress.innerHTML = `${_data.total}%`;
+			}
+		});
+
+		fileInp.onchange = async function () {
+			let file = fileInp.files[0];
+			if (!file) return;
+			progress.innerHTML = "0%";
+
+			let formData = new FormData();
+			formData.append('chunk', file);
+			formData.append('filename', $formatFileName(file.name).filename);
+			let result = await $ajax({
+				url: 'http://127.0.0.1:5678/single',
+				data: formData,
+				progress: ev => {
+					// ev.loaded 已经上传的大小
+					// ev.total 总大小
+					_data.total = Math.ceil(ev.loaded / ev.total * 100);
+				}
+			});
+			if (result.code == 0) {
+				serverImg.src = result.path;
+			}
+		};
+	</script>
+</body>
+
+</html>

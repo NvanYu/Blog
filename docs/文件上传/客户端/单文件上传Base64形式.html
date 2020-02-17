@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<input type="file" id="fileInp" accept="image/*">
+	<br>
+	<img src="" alt="" id="serverImg">
+
+	<!-- IMPORT JS -->
+	<script src="js/md5.min.js"></script>
+	<script src="js/ajax.js"></script>
+	<script>
+		function convertBase64(file) {
+			return new Promise(resolve => {
+				let fileRead = new FileReader();
+				fileRead.readAsDataURL(file);
+				fileRead.onload = ev => {
+					resolve(ev.target.result);
+				};
+			});
+		}
+
+		fileInp.onchange = async function () {
+			let file = fileInp.files[0];
+			if (!file) return;
+			let base64 = await convertBase64(file);
+			let result = await $ajax({
+				url: 'http://127.0.0.1:5678/single2',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data: `chunk=${encodeURIComponent(base64)}&filename=${$formatFileName(file.name).filename}`
+			});
+			if (result.code == 0) {
+				serverImg.src = result.path;
+			}
+		};
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>珠峰培训 - 微信：18310612838</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<input type="file" id="fileInp" accept="image/*">
+	<span id="progress">0%</span>
+	<br>
+	<img src="" alt="" id="serverImg">
+
+	<!-- IMPORT JS -->
+	<script src="js/md5.min.js"></script>
+	<script src="js/ajax.js"></script>
+	<script>
+		let _data = new Proxy({
+			total: 0
+		}, {
+			set(target, key, value) {
+				target[key] = value;
+				if (_data.total >= 100) {
+					progress.innerHTML = '上传完成';
+					return;
+				}
+				progress.innerHTML = `${_data.total}%`;
+			}
+		});
+
+		fileInp.onchange = async function () {
+			let file = fileInp.files[0];
+			if (!file) return;
+			progress.innerHTML = "0%";
+
+			// 把一个文件切成五个切片（固定切片数量 也可以固定切片大小）
+			let partSize = file.size / 5,
+				cur = 0,
+				i = 0,
+				partList = [];
+			let {
+				hash,
+				suffix,
+				filename
+			} = $formatFileName(file.name);
+			while (i < 5) {
+				partList.push({
+					chunk: file.slice(cur, cur + partSize),
+					filename: `${hash}-${i}.${suffix}`
+				});
+				cur += partSize;
+				i++;
+			}
+
+			//并发切片请求
+			partList = partList.map(item => {
+				let formData = new FormData();
+				formData.append('chunk', item.chunk);
+				formData.append('filename', item.filename);
+				return $ajax({
+					url: 'http://127.0.0.1:5678/chunk',
+					data: formData
+				}).then(result => {
+					if (result.code == 0) {
+						_data.total += 20;
+						return Promise.resolve(result);
+					}
+					return Promise.reject(result);
+				});
+			});
+
+			// 合并切片
+			await Promise.all(partList);
+			/* await new Promise(resolve => {
+				setTimeout(_ => {
+					resolve();
+				}, 100);
+			}); */
+			let result = await $ajax({
+				url: 'http://127.0.0.1:5678/merge',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				data: `filename=${filename}`
+			});
+			if (result.code == 0) {
+				serverImg.src = result.path;
+			}
+		};
+	</script>
+</body>
+
+</html>
