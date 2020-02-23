@@ -29,7 +29,7 @@
 13. [一些面试题](https://github.com/NvanYu/Blog/issues/16)
 14. [面向对象继承](https://github.com/NvanYu/Blog/issues/19)
 15. [Javascript深浅拷贝](https://github.com/NvanYu/Blog/issues/21)
-16. [函数柯里化,函数管道](https://github.com/NvanYu/Blog/issues/23)
+16. [函数柯里化,函数管道,函数记忆](https://github.com/NvanYu/Blog/issues/23)
 17. [对象混合，对象克隆](https://github.com/NvanYu/Blog/issues/24)
 18. [函数节流与防抖](https://github.com/NvanYu/Blog/issues/25)
 19. [数组去重](https://github.com/NvanYu/Blog/issues/26)
