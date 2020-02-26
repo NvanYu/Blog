@@ -33,7 +33,7 @@
 17. [对象混合，对象克隆](https://github.com/NvanYu/Blog/issues/24)
 18. [函数节流与防抖](https://github.com/NvanYu/Blog/issues/25)
 19. [数组去重](https://github.com/NvanYu/Blog/issues/26)
-20. [JSONP原理](https://github.com/NvanYu/Blog/issues/28)
+20. [跨域原理](https://github.com/NvanYu/Blog/issues/28)
 21. [parseInt系列和map高阶函数系列](https://github.com/NvanYu/Blog/issues/31)
 22. [函数的VO和AO](https://github.com/NvanYu/Blog/issues/32)
 23. [JS同步异步编程详解](https://github.com/NvanYu/Blog/issues/33)
