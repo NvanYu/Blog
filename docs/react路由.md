@@ -121,10 +121,14 @@ ReactDOM.render(<HashRouter>
  *   获取三个属性：this.props
  *
  * history 实现路由跳转
- *   push：向HISTORY STACK中新增一条记录（跳转到指定的新页面）
+ *   push(path, state)：向HISTORY STACK中新增一条记录（跳转到指定的新页面）
+ *   replace(path, state)
+ *   go(n): 
  *   goBack：返回上一条记录对应的页面
  *   goForward：前进到下一条记录对应的页面
  *   location：{pathname\search\state\hash} 存储当前页面的一些地址信息
+ *   length
+ *   
  *   ...
  *
  * location 存储当前页面中的一些信息
@@ -136,6 +140,8 @@ ReactDOM.render(<HashRouter>
  * match  存储了每一个路由Route匹配的一些信息
  *   isExact
  *   params
+ *   path
+ *   url
  */
 
 实现页面跳转，并且传递一些信息值，有三种方式：
