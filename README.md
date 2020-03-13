@@ -5,13 +5,10 @@
 
 
 ## 🍔 HTML & CSS系列 
-1. [CSS文字溢出问题](https://github.com/NvanYu/Blog/issues/5)
-2. [移动端笔记](https://github.com/NvanYu/Blog/blob/master/docs/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
-3. [浏览器渲染原理](https://github.com/NvanYu/Blog/issues/15)
-4. [HTML和CSS碎知识整理](https://github.com/NvanYu/Blog/issues/22)
-5. [1物理像素实现](https://github.com/NvanYu/Blog/issues/36)
-6. [背景图片左外边框距离问题](https://github.com/NvanYu/Blog/issues/37)
-7. [rem响应式布局开发](https://github.com/NvanYu/Blog/issues/39)
+1. [移动端笔记](https://github.com/NvanYu/Blog/blob/master/docs/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E7%A7%BB%E5%8A%A8%E7%AB%AF.md)
+2. [浏览器渲染原理](https://github.com/NvanYu/Blog/issues/15)
+3. [HTML和CSS碎知识整理](https://github.com/NvanYu/Blog/issues/22)
+4. [rem响应式布局开发](https://github.com/NvanYu/Blog/issues/39)
 
 ## 🤣 Javascript基础知识
 1. [一道闭包引发的“血案”](https://github.com/NvanYu/Blog/issues/2)
@@ -40,12 +37,11 @@
 24. [JSON.stringify()特性](https://github.com/NvanYu/Blog/issues/35)
 25. [JS运算符优先级面试题](https://github.com/NvanYu/Blog/blob/master/docs/js/js%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 26. [nodejs事件轮询](https://github.com/NvanYu/Blog/issues/38)
-27. [模拟Symbol](https://github.com/NvanYu/Blog/issues/41)
-28. [关于2020年JS的几个新特性的认知](https://github.com/NvanYu/Blog/issues/43)
-29. [正则表达式](https://github.com/NvanYu/Blog/issues/45)
-30. [机器学习入门知识](https://github.com/NvanYu/Blog/issues/46)
-31. [typescript配置文件解析](https://github.com/NvanYu/Blog/issues/49)
-32. [CO库使用和原理](https://github.com/NvanYu/Blog/issues/50)
+27. [关于2020年JS的2个新特性的认知](https://github.com/NvanYu/Blog/issues/43)
+28. [正则表达式](https://github.com/NvanYu/Blog/issues/45)
+29. [机器学习入门知识](https://github.com/NvanYu/Blog/issues/46)
+30. [typescript配置文件解析](https://github.com/NvanYu/Blog/issues/49)
+31. [CO库使用和原理](https://github.com/NvanYu/Blog/issues/50)
 
 ## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
