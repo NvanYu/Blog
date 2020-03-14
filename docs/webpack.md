@@ -11,6 +11,15 @@
 > 扩展插件（plugin）: 在webpack构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想做的任何事情
 
 
+# 前端项目为什么要打包和构建
++ 体积更小（tree-shaking、压缩、合并），加载更快
++ 编译高级语法（ts，es6+，less等）
++ 兼容性处理。错误检查（polyfill，postcss，eslint）
++ 统一，高效的开发环境
++ 统一的构建流程和产出标准
++ 集成公司构建规范（提测，上线）
+
+
 ## 1. 安装webpack
 
 目前@vue/cli和create-react-app基本上采用webpack4.0以上版本；第四代以上版本需要安装webpack和webpack-cli（可执行命令）
@@ -305,7 +314,7 @@ $ yarn add webpack webpack-cli -D
 
 17. image-webpack-loader图片压缩
 
-18. Tree-shaking(生产环境)(要在package.json文件中做配置) -> "sideEffects": false
+18. Tree-shaking(生产环境)(要在package.json文件中做配置) -> "sideEffects": false，只有es6module支持，因为是静态引入，编译时引入，能做静态分析实现tree-shaking，commonjs是动态引入，执行时引入，不能做tree-shaking
 
 19. Scope-Hoisting:webpack4 后不用配，天生自带，用来减少作用域提升性能
 
@@ -369,6 +378,20 @@ devServer: {
 ```
 
 
+## 关于webpack优化思路
++ 小图base64
++ bundle加hash
++ 懒加载
++ 代码分割
++ 优化babel-loader，exclude
++ IngorePlugin，例如忽略moment下的语言包，要用什么自己引入
++ noParse，对于一些已经打包构建好的库或文件不要再次打包
++ happypack 多进程打包，多进程打包是否需要看项目大小，小项目其实可以不用多进程打包，因为会耗费进程资源
++ ParallelUglifyPlugin
++ webpack-dev-server 开发时自动刷新
++ DllPlugin，webpack内置，统一版本只构建一次
++ production 模式下回自动压缩，vue和react会自动删除调试代码，自动启动tree-shaking
++ CDN加速，配置output配置下的publicPath选项，css和js等静态文件上传CDN即可
 
 
 
@@ -430,7 +453,7 @@ module.exports = {
   "presets": [  // 从下往上加载
     ["@babel/preset-env", {
       "useBuiltIns": "usage",   // 按需加载
-      "corejs": 3   // 解析高版本语法(需要安装npm i core-js@3) 相当于@babel/polyfill插件,babel7.4以后不用polyfill了
+      "corejs": 3   // 解析高版本语法(需要安装npm i core-js@3) 相当于@babel/polyfill插件,babel7.4以后不用polyfill了，推荐使用corejs和regerenator，polyfill是他俩的集合，polyfill会污染全局环境，自己写三方库用babel-runtime
     }]
   ],
   "plugins": [   // 从上往下加载
