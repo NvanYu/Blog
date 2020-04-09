@@ -42,6 +42,7 @@
 29. [机器学习入门知识](https://github.com/NvanYu/Blog/issues/46)
 30. [typescript配置文件解析](https://github.com/NvanYu/Blog/issues/49)
 31. [CO库使用和原理](https://github.com/NvanYu/Blog/issues/50)
+32. [封装 axios ](https://github.com/NvanYu/Blog/issues/54)
 
 ## ⚽ Javascript设计模式专题
 1. [温故而知新-this指向重拾](https://github.com/NvanYu/Blog/issues/17)
