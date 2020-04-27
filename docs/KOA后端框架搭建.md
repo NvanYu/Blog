@@ -15,16 +15,39 @@
     - v1                  // v1版本的api接口(按模块划分)
       - book.js
       - classic.js
-    - v2            	  // v2版本的api接口
-  - core            	  // 一些核心代码
+    - v2            	    // v2版本的api接口
+  - core            	    // 一些核心代码
+    - db.js               // 数据库设置，例如设置sequelize或者mongoose
     - init.js             // 初始化的一些设置
     - http-exception.js   // 处理异常的类
     - lin-validator.js    // 校验器，依赖utils.js/http-exception.js
     - utils.js            // 配合校验器使用
+  - model                 // 数据库模型创建，需要引入 /core/db.js 中的数据
+    - user.js
   - validators            // 具体校验器
     - validator.js
   - middleware            // 错误处理中间件
     - exception.js
+  - config
+    - config.js
+```
+
+
+### 配置文件
+```js
+// config/config.js
+module.exports = {
+  // 配置环境
+  environment: 'dev',
+  // 数据库配置, 其他文件中可以通过global.database.dbName形式获取
+  database: {
+    dbName: 'xxx',
+    host: 'xxx',
+    post: 333,
+    user: 'xxx',
+    password: 'xxxx'
+  }
+}
 ```
 
 
@@ -60,7 +83,16 @@ class InitManager {
         InitManager.app = app;
         InitManager.initLoadRouters();
         InitManager.loadHttpException();
+        InitManager.loadConfig();
     }
+    
+    // 加载配置文件
+    static loadConfig() {
+      const configPath = path || path.cwd() + '/config/config.js';
+      const config = require(configPath);
+      global.config = config;
+    }
+    
     static initLoadRouters() {
         const apiDirectory = `${process.cwd()}/app/api`;
         requireDirectory(module, apiDirectory, {
