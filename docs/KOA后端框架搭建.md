@@ -11,7 +11,7 @@
 ```txt
 - server.js               // 入口文件
 - app                     // 放主要代码
-  - api                   // 接口文件夹
+  - controller            // 接口文件夹
     - v1                  // v1版本的api接口(按模块划分)
       - book.js
       - classic.js
